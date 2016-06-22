@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/automation-reports-parent.iml" filepath="$PROJECT_DIR$/automation-reports-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stag-allure/stag-allure.iml" filepath="$PROJECT_DIR$/stag-allure/stag-allure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stag-extentreports/stag-extentreports.iml" filepath="$PROJECT_DIR$/stag-extentreports/stag-extentreports.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stag-serenitybdd/stag-serenitybdd.iml" filepath="$PROJECT_DIR$/stag-serenitybdd/stag-serenitybdd.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.serenity-bdd:serenity-report-resources:1.1.36">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/serenity-bdd/serenity-report-resources/1.1.36/serenity-report-resources-1.1.36.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/serenity-bdd/serenity-report-resources/1.1.36/serenity-report-resources-1.1.36-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/serenity-bdd/serenity-report-resources/1.1.36/serenity-report-resources-1.1.36-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
