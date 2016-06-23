@@ -4,6 +4,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+/**
+ * Basic demonstration of the ExtentReport methods
+ * Refer to: http://extentreports.relevantcodes.com/java/
+ */
 public class RunMainTests {
 
     private static ExtentReports extent;

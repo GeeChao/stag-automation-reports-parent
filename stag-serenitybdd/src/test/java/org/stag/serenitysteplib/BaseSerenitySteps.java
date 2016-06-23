@@ -3,6 +3,9 @@ package org.stag.serenitysteplib;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
+/**
+ * This class is not required, I just implemented it for additional logging purposes to the HTML report
+ */
 public class BaseSerenitySteps extends ScenarioSteps {
 
     @Step
@@ -24,6 +27,12 @@ public class BaseSerenitySteps extends ScenarioSteps {
         description(html);
     }
 
+    /**
+     * Dummy step you can call from a Serenity Step Library
+     * This will write anything you want to the report and show appropriately under the Step it's called from
+     * This was implemented because there is no out-of-the-box method to write whatever you want to the report
+     * @param description
+     */
     public void log(String description) {
         System.out.println("\n+Description: " + description);
         String html =

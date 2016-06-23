@@ -6,6 +6,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+/**
+ * There are no special plugins or adapters applied here or the hooks class
+ * refer to the pom file where the cucumber listener is added to the surefire runner
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources",

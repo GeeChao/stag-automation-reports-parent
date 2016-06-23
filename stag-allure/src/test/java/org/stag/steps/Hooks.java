@@ -4,6 +4,10 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
+/**
+ * There are no special plugins or adapters applied here or the hooks class
+ * refer to the pom file where the cucumber listener is added to the surefire runner
+ */
 public class Hooks {
 
     public Hooks() throws Throwable {

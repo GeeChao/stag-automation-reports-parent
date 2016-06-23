@@ -21,7 +21,14 @@ public class Hooks implements Formatter, Reporter {
 
     private ExtentReports report;
     private ExtentTest logger;
+    private String scenarioName;
+    private String scenarioDesc;
+    private String errorMessage;
 
+    /**
+     * These are static members required for keeping the same tate when used in the Formatter/Reporter methods
+     * This is because when these methods are invoked, it's actually a different instance of the Hooks class
+     */
     private static List<String> steps;
     private static List<String> scenarioOutlineExamples;
     private static int stepi;
@@ -29,15 +36,20 @@ public class Hooks implements Formatter, Reporter {
     private static String featureName;
     private static boolean isScenarioOutline;
 
-    private String scenarioName;
-    private String scenarioDesc;
-    private String errorMessage;
-
     public Hooks() {
         System.out.println("_____________ INITIALIZE HOOKS _____________");
-        this.report = ExtentManager.getReporter(System.getProperty("user.dir") + "\\target\\extentreports\\extentreport.html");
     }
 
+    /**
+     * Invoked before every cucumber scenario or scenario outline example run
+     * Gets feature name followed by scenario name and creates a new test in extent reports
+     * If it is a scenario outline, it will also append the Example key
+     * It will also assign it to a category which is the feature name
+     * Another improvement is to use the ExtentReports assignChild for scenario outline example runs (not yet implemented)
+     * @param scenario
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Before
     public void initiate(Scenario scenario) throws IOException, InterruptedException {
         steps = new ArrayList<>();
@@ -60,6 +72,13 @@ public class Hooks implements Formatter, Reporter {
         logger.assignCategory("Feature: " + featureName);
     }
 
+    /**
+     * Invoked after the completion of a Cucumber scenario
+     * Resets static members where required
+     * Also ends the test in the report
+     * @param scenario
+     * @throws Throwable
+     */
     @After
     public void terminate(Scenario scenario) throws Throwable {
         String status = scenario.getStatus();
@@ -73,6 +92,12 @@ public class Hooks implements Formatter, Reporter {
         ExtentTestManager.endTest();
     }
 
+    /**
+     * This is the method that is automatically invoked after EVERY step in a scenario, not the step method
+     * Because of this, and we only have access to the result parameter
+     * 
+     * @param result
+     */
     @Override
     public void result(Result result) {
         String currentStep = steps.get(stepi);
@@ -94,6 +119,11 @@ public class Hooks implements Formatter, Reporter {
         featureName = feature.getName();
     }
 
+    /**
+     * Invoked if the scenario is a scenario outline
+     * sets the scenario outline boolean member to true and the index to start at 1 to ignore the row title
+     * @param scenarioOutline
+     */
     @Override
     public void scenarioOutline(ScenarioOutline scenarioOutline) {
         System.out.println("SCENARIO OUTLINE: " + scenarioOutline.toString());
@@ -101,6 +131,11 @@ public class Hooks implements Formatter, Reporter {
         examplei = 1;
     }
 
+    /**
+     * Create new examples array and assigns the scenario outline examples to it
+     * This is then iterated through based on how many times the scenario is run
+     * @param examples
+     */
     @Override
     public void examples(Examples examples) {
         scenarioOutlineExamples = new ArrayList<>();
@@ -115,6 +150,12 @@ public class Hooks implements Formatter, Reporter {
         }
     }
 
+    /**
+     * Unfortunately, this step is actually invoked at the start of the scenario by the gherkin parser
+     * It lists all the steps out in 1 go before the scenario is actually executed
+     * Therefore we store it into a static step member and iterate through it every time the result method is invoked
+     * @param step
+     */
     @Override
     public void step(Step step) {
         System.out.println("STEPS IN SCENARIO: " + step.getKeyword() + step.getName());

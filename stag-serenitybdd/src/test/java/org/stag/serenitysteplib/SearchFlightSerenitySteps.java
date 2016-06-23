@@ -20,6 +20,10 @@ public class SearchFlightSerenitySteps extends BaseSerenitySteps {
         flightsPage.returnChkBox.waitUntilClickable().click();
     }
 
+    /**
+     * Lazy approach for website's auto-fill field
+     * @param origin
+     */
     @Step
     public void selectFlightOrigin(String origin) {
         flightsPage.departDropBox.type(origin);
@@ -27,6 +31,10 @@ public class SearchFlightSerenitySteps extends BaseSerenitySteps {
         flightsPage.departDropBox.sendKeys(Keys.TAB);
     }
 
+    /**
+     * Lazy approach for website's auto-fill field
+     * @param destination
+     */
     @Step
     public void selectFlightDestination(String destination) {
         flightsPage.arriveDropBox.type(destination);

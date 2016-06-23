@@ -11,7 +11,9 @@ import org.stag.serenitysteplib.LoginSerenitySteps;
 import org.stag.serenitysteplib.NavigationSerenitySteps;
 
 /**
- * Created by Matthew Chan on 15-Jun-16.
+ * Basic JUnit test to demonstrate serenity BDD
+ * Ensure you declare the step libraries with the @Step annotation to automatically instantiate them
+ * Also requires @Managed annotation for the automatic instantiation of WebDriver
  */
 @RunWith(SerenityRunner.class)
 public class JUnitTests {

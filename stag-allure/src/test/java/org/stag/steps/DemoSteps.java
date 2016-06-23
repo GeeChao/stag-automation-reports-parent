@@ -12,7 +12,6 @@ public class DemoSteps {
         // Write code here that turns the phrase above into concrete actions
     }
 
-
     @When("^I run this test$")
     public void iRunThisTest() throws Throwable {
         // Write code here that turns the phrase above into concrete actions

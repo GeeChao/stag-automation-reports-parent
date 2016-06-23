@@ -6,6 +6,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+/**
+ * Exactly the same as the cucumber runner class in a traditional cucumber test framework
+ * However the Runner has been changed to @RunWith(CucumberWithSerenity.class) as oppoosed to Cucumber.class
+ * This is required to generate report, context management, DI, webdriver API etc.
+ */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources",
